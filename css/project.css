@@ -277,7 +277,6 @@
   .project-nav { grid-template-columns: 1fr; }
   .project-nav-link.next { text-align: left; }
 
-  /* 모바일 라이트박스: 이미지를 화면의 2.5배로 키우고 좌우·상하로 밀어서 보기 */
+  /* 모바일 라이트박스: 화면 폭에 딱 맞춰 이미지 전체를 보여줌 (세부는 두 손가락으로 확대) */
   .lightbox { padding: 64px 0 24px; }
-  .lightbox-img { width: 250%; max-width: none; }
 }

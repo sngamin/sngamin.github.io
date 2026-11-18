@@ -303,6 +303,23 @@ img { display: block; max-width: 100%; }
   margin-bottom: 8px;
 }
 
+/* 스킬 수준 표시 (예: 기초 · 학습 중) */
+.skill-level {
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-bg);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* 스킬 아래 작은 설명 문장 */
+.skill-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-sub);
+}
+
 .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .skill-list li {
@@ -338,6 +355,12 @@ img { display: block; max-width: 100%; }
   padding: 32px;
   font-size: 14px;
   color: var(--color-sub);
+}
+
+.footer-credit {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 /* =========================================

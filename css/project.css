@@ -1,0 +1,283 @@
+/* =========================================
+   프로젝트 상세 페이지 공통 스타일
+   - style.css(헤더, 버튼, 변수 등)를 먼저 불러온 뒤 이 파일로 덮어씀
+   - 프로젝트마다 body의 --accent, --page-bg 값만 바꿔서 재사용
+   - 밝은 배경 프로젝트는 body에 theme-light 클래스를 추가
+   ========================================= */
+
+/* 페이지 색 변수 (기본값 = 어두운 테마) */
+.project-page {
+  --page-text: #f5f5f6;                      /* 본문 글자 */
+  --page-sub: #b4b6bf;                       /* 설명 글자 */
+  --page-muted: #8b8d96;                     /* 흐린 글자 */
+  --page-line: rgba(255, 255, 255, 0.12);    /* 구분선 */
+  --page-surface: rgba(255, 255, 255, 0.06); /* 칩, 버튼 배경 */
+  --page-surface-hover: rgba(255, 255, 255, 0.12);
+  --header-bg: rgba(17, 19, 23, 0.8);
+
+  background: var(--page-bg);
+  color: var(--page-text);
+}
+
+/* 밝은 테마: 변수 값만 바꾸면 아래 모든 스타일이 자동으로 따라감 */
+.project-page.theme-light {
+  --page-text: #1d1d1f;
+  --page-sub: #55575e;
+  --page-muted: #8a8c93;
+  --page-line: rgba(0, 0, 0, 0.1);
+  --page-surface: rgba(0, 0, 0, 0.05);
+  --page-surface-hover: rgba(0, 0, 0, 0.09);
+  --header-bg: rgba(250, 250, 250, 0.8);
+}
+
+/* 헤더 색을 페이지 테마에 맞추기 */
+.project-page .header { background: var(--header-bg); }
+.project-page .logo,
+.project-page .menu a:hover { color: var(--accent); }
+.project-page .footer { color: var(--page-muted); }
+
+/* 화면에서는 숨기고, 화면 낭독기와 검색엔진에는 읽히는 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 텍스트 폭: 이미지(1920px) 속 내용의 좌우 여백(약 6.25%)과 줄을 맞춤 */
+.case-inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 6.25%;
+}
+
+/* =========================================
+   1. 프로젝트 개요
+   ========================================= */
+.project-intro { padding: 80px 0 64px; }
+
+.back-link {
+  display: inline-block;
+  color: var(--page-muted);
+  margin-bottom: 48px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+
+.project-label {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.project-summary {
+  font-size: 20px;
+  color: var(--page-sub);
+  margin-bottom: 48px;
+}
+
+/* 메타 정보: 항목들을 가로로 나열 */
+.project-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 56px; /* 세로 간격 24px, 가로 간격 56px */
+  padding-top: 32px;
+  border-top: 1px solid var(--page-line);
+}
+
+/* 항목 하나: 초록색 항목명은 위, 흰색 내용은 아래 (div 기본값 = 세로로 쌓임) */
+.project-facts div { text-align: left; }
+
+.project-facts dt {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.project-facts dd {
+  margin: 0; /* 브라우저가 dd에 넣는 기본 왼쪽 여백 제거 */
+  font-weight: 500;
+}
+
+/* =========================================
+   2. 케이스 스터디 섹션
+   ========================================= */
+.case { padding-top: 120px; }
+
+.case-label {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.case-title {
+  font-size: clamp(24px, 2.6vw, 40px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+/* 가설처럼 큰 문장 */
+.case-title-lg { line-height: 1.5; }
+.case-title em { font-style: normal; color: var(--accent); } /* em의 기본 기울임 제거 */
+.case-title small {
+  font-size: 0.4em;
+  font-weight: 600;
+  color: var(--accent);
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.case-desc {
+  max-width: 900px;
+  color: var(--page-sub);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Response · Duration · Tool 칩 */
+.case-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.case-chips li {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--page-surface);
+  font-size: 14px;
+}
+
+.case-chips span { color: var(--page-muted); margin-right: 6px; }
+
+/* 이미지: 최대 1920px, 가운데 정렬 */
+.case-image {
+  max-width: 1920px;
+  margin: 32px auto 0;
+}
+
+.case-image img {
+  width: 100%;
+  cursor: zoom-in; /* 마우스를 올리면 돋보기 커서 → 클릭하면 크게 보인다는 신호 */
+}
+
+/* 이미지들을 틈 없이 이어 붙이는 섹션 (솔루션, 띠 형태 디자인 등) */
+.case-solution .case-image,
+.case-stack .case-image { margin-top: 0; }
+.case-stack { padding-top: 0; }
+
+/* =========================================
+   3. 마무리 + 다음 프로젝트
+   ========================================= */
+.project-end { padding: 120px 0 80px; }
+
+.end-thanks {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.project-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.project-nav-link {
+  display: block;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--page-surface);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.project-nav-link:hover {
+  background: var(--page-surface-hover);
+  transform: translateY(-4px);
+}
+
+.project-nav-link span {
+  display: block;
+  font-size: 14px;
+  color: var(--page-muted);
+  margin-bottom: 8px;
+}
+
+.project-nav-link strong { font-size: 22px; }
+.project-nav-link.next { text-align: right; }
+.project-nav-link.next strong { color: var(--accent); }
+
+/* =========================================
+   4. 이미지 크게 보기 (라이트박스) - js/lightbox.js와 함께 동작
+   ========================================= */
+.lightbox {
+  position: fixed;   /* 스크롤과 상관없이 화면에 고정 */
+  inset: 0;          /* top, right, bottom, left 모두 0 = 화면 전체 */
+  z-index: 100;      /* 헤더(10)보다 위에 */
+  background: rgba(0, 0, 0, 0.9);
+  overflow: auto;    /* 이미지가 화면보다 크면 안에서 스크롤 */
+  display: none;     /* 평소에는 숨김 */
+  padding: 64px 24px;
+}
+
+.lightbox.is-open { display: flex; } /* JS가 is-open을 붙이면 보임 */
+
+.lightbox-img {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto; /* flex 안에서 margin:auto = 상하좌우 가운데 */
+  cursor: auto;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* =========================================
+   5. 반응형
+   ========================================= */
+@media (max-width: 768px) {
+  .case-inner { padding: 0 20px; }
+  .project-intro { padding: 48px 0 40px; }
+  .back-link { margin-bottom: 32px; }
+  .project-summary { font-size: 16px; }
+  .project-summary br { display: none; }
+  /* 메타 정보: 2칸 grid로, 각 항목은 위아래로 쌓인 그대로 */
+  .project-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+
+  .case { padding-top: 72px; }
+  .case-desc { font-size: 15px; }
+
+  .project-end { padding: 80px 0 48px; }
+  .project-nav { grid-template-columns: 1fr; }
+  .project-nav-link.next { text-align: left; }
+
+  /* 모바일 라이트박스: 이미지를 화면의 2.5배로 키우고 좌우·상하로 밀어서 보기 */
+  .lightbox { padding: 64px 0 24px; }
+  .lightbox-img { width: 250%; max-width: none; }
+}

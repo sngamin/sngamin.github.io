@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시네: 루트 | LEE SANG MIN</title>
+  <meta name="description" content="영화의 특성과 사용자의 취향을 분석해, 나에게 가장 잘 맞는 특별관을 추천하는 개인화 서비스">
+
+  <!-- 파비콘 (브라우저 탭 아이콘) -->
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+  <!-- 링크 공유 미리보기 (카카오톡, 슬랙 등) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="시네: 루트 | LEE SANG MIN">
+  <meta property="og:description" content="영화의 특성과 사용자의 취향을 분석해, 나에게 가장 잘 맞는 특별관을 추천하는 개인화 서비스">
+  <meta property="og:image" content="https://sngamin.github.io/images/og-image.png">
+  <meta property="og:url" content="https://sngamin.github.io/projects/cineroute.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <!-- 파일이 projects 폴더 안에 있으므로 ../ 로 한 단계 위 폴더로 나가서 css를 찾음 -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+
+<!-- 프로젝트마다 대표 색(--accent)과 배경색(--page-bg)만 바꿔서 같은 CSS를 재사용 -->
+<body class="project-page" style="--accent: #38f88b; --page-bg: #111317;">
+
+  <!-- ===== 헤더 (메인과 동일, 링크만 ../index.html 로) ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">SANG MIN</a>
+      <nav>
+        <ul class="menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== 프로젝트 개요 ===== -->
+    <section class="project-intro">
+      <div class="case-inner">
+        <a href="../index.html#work" class="back-link">← 프로젝트 목록</a>
+
+        <p class="project-label">01 · MOBILE</p>
+        <h1 class="project-title">시네: 루트</h1>
+        <p class="project-summary">
+          영화의 특성과 사용자의 취향을 분석해,<br>
+          나에게 가장 잘 맞는 특별관을 추천하는 개인화 서비스
+        </p>
+
+        <!-- dl(설명 목록): dt = 항목 이름, dd = 내용 -->
+        <dl class="project-facts">
+          <div>
+            <dt>구분</dt>
+            <dd>서비스 UI 기획 및 개선 제안</dd>
+          </div>
+          <div>
+            <dt>기간</dt>
+            <dd>2026.08.03 – 08.26</dd>
+          </div>
+          <div>
+            <dt>역할</dt>
+            <dd>UI, UX</dd>
+          </div>
+          <div>
+            <dt>기여도</dt>
+            <dd>UI 55% · UX 50% · UX Research 50%</dd>
+          </div>
+          <div>
+            <dt>Tool</dt>
+            <dd>Figma · ChatGPT · Maze</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 대표 이미지 -->
+    <figure class="case-image">
+      <img src="../images/cineroute/hero.webp" alt="시네:루트 로고와 앱 화면 목업 표지">
+    </figure>
+
+    <!-- ===== Background ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">Background</p>
+        <h2 class="case-title">회복하는 영화 시장 속, 특별관은 더 빠르게 성장하고 있어요</h2>
+        <p class="case-desc">
+          팬데믹 이후 극장 시장은 회복세를 보였지만, 매출은 여전히 팬데믹 이전 수준에는 미치지 못하고 있습니다.
+          이제 극장은 단순 관람을 넘어 대형 스크린, 고품질 음향, 체험형 상영 등 극장에서만 가능한 경험을 강화하고 있습니다.
+        </p>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/background.webp" alt="극장 시장 회복 현황, 특별관 수와 관객 수 증가 그래프" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Survey ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">Survey</p>
+        <h2 class="case-title">사용자는 영화의 특성과 자신의 상황에 맞는 특별관을 추천받고 싶어 했어요</h2>
+        <p class="case-desc">
+          설문 참여자들은 영화 상영 방식뿐 아니라 시설, 이동 거리, 상영 시간까지 여러 조건을 함께 고려했습니다.
+          하지만 특별관의 차이를 이해하기 어렵고 추천 기준도 사람마다 달라, 자신에게 맞는 특별관을 고르는 데 어려움을 느끼고 있었습니다.
+        </p>
+        <ul class="case-chips">
+          <li><span>Response</span> 총 74명</li>
+          <li><span>Duration</span> 2026.08.05 – 08.08</li>
+          <li><span>Tool</span> Google Forms</li>
+        </ul>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/survey.webp" alt="설문 결과: 특별관 선택 시 확인한 정보, 어려웠던 점, 추천 서비스 이용 의향" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Hypothesis ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">Hypothesis</p>
+        <!-- 강조할 단어만 <em>으로 감싸서 포인트 컬러 적용 -->
+        <h2 class="case-title case-title-lg">
+          특별관 <em>선택이 어려운</em> 사용자가 <small>Who</small><br>
+          <em>영화와 관람 조건에 맞는 특별관</em>을 추천받는다면 <small>How</small><br>
+          적합한 특별관을 <em>빠르게 선택</em>할 수 있을 것이다 <small>What</small>
+        </h2>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/hypothesis.webp" alt="페인 포인트 3가지와 그에 대한 솔루션" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== User Flow ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">User Flow</p>
+        <p class="case-desc">
+          영화·위치·시간 등 관람 조건을 입력하면 이용 가능한 특별관과 맞춤 추천 결과를 확인할 수 있습니다.
+          특별관별 특징과 추천 근거를 비교해 원하는 관을 선택하고, 상세 정보 확인 후 예매처로 이동합니다.
+        </p>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/userflow.webp" alt="특별관 추천 받기 유저 플로우" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Design System (제목이 이미지 안에 있어서 화면에서는 숨김) ===== -->
+    <section class="case">
+      <h2 class="sr-only">Design System</h2>
+      <figure class="case-image">
+        <img src="../images/cineroute/design-system.webp" alt="디자인 시스템: 로고, 컬러, UI 요소, 컴포넌트" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Usability Test 1 ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">Usability Test</p>
+        <h2 class="case-title">특별관을 추천받는 과정은 원활했지만, 경험을 남기는 과정은 어려웠어요</h2>
+        <p class="case-desc">
+          추천 결과의 이해도와 정보 충분성은 높았지만, 리뷰 작성 위치를 쉽게 찾지 못한 점이 핵심 개선 과제로 확인됐습니다.
+        </p>
+        <ul class="case-chips">
+          <li><span>Response</span> 총 28명</li>
+          <li><span>Duration</span> 2026.08.19 – 08.20</li>
+          <li><span>Tool</span> Maze</li>
+        </ul>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/usability-1.webp" alt="사용성 테스트 결과: Task 1 검증 완료, Task 2 개선 필요" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Usability Test 2 (개선) ===== -->
+    <section class="case">
+      <div class="case-inner">
+        <p class="case-label">Improvement</p>
+        <h2 class="case-title">리뷰 작성 진입점을 추가해 더 쉽게 찾고 시작할 수 있도록 했어요</h2>
+      </div>
+      <figure class="case-image">
+        <img src="../images/cineroute/usability-2.webp" alt="리뷰 작성 플로우 AS-IS와 TO-BE 비교" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== Solution (이미지 4장을 이어 붙임) ===== -->
+    <section class="case case-solution">
+      <h2 class="sr-only">Solution</h2>
+      <figure class="case-image">
+        <img src="../images/cineroute/solution-home.webp" alt="Solution 홈: 영화에 맞는 특별관 추천" loading="lazy">
+        <img src="../images/cineroute/solution-match.webp" alt="Solution 매치: 조건에 맞는 특별관 추천과 비교" loading="lazy">
+        <img src="../images/cineroute/solution-detail.webp" alt="Solution 상세: 특별관 정보 확인과 예매처 이동" loading="lazy">
+        <img src="../images/cineroute/solution-mypage.webp" alt="Solution 마이페이지: 탐색부터 리뷰까지" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===== 마무리 + 다음 프로젝트 ===== -->
+    <section class="project-end">
+      <div class="case-inner">
+        <p class="end-thanks">Thanks for watching!</p>
+
+        <nav class="project-nav">
+          <a href="../index.html#work" class="project-nav-link">
+            <span>목록으로</span>
+            <strong>All Projects</strong>
+          </a>
+          <a href="hwik.html" class="project-nav-link next">
+            <span>다음 프로젝트 →</span>
+            <strong>휙 (hwik)</strong>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 LEE SANG MIN</p>
+  </footer>
+
+  <!-- JavaScript는 HTML을 다 읽은 뒤 실행되도록 body 맨 끝에 둠 -->
+  <script src="../js/lightbox.js"></script>
+
+</body>
+</html>

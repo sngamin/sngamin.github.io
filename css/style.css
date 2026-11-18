@@ -1,0 +1,385 @@
+/* =========================================
+   0. 디자인 토큰 (PDF 표지 컬러에서 가져옴)
+   ========================================= */
+:root {
+  --color-bg: #f3f1ff;        /* 연보라 배경 */
+  --color-point: #8f80e8;     /* 메인 보라 */
+  --color-point-dark: #6b5bd6;
+  --color-text: #1d1b2e;
+  --color-sub: #6e6a85;
+  --color-white: #ffffff;
+  --radius: 20px;
+  --max-width: 1200px;
+}
+
+/* =========================================
+   1. 초기화
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; } /* 메뉴 클릭 시 부드럽게 스크롤 */
+
+body {
+  font-family: "Pretendard", -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈 안 되게 */
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* 공통 가로폭 컨테이너 */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* =========================================
+   2. 헤더
+   ========================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(243, 241, 255, 0.8);
+  backdrop-filter: blur(10px); /* 뒤가 흐리게 비치는 유리 효과 */
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  color: var(--color-point);
+  letter-spacing: 0.02em;
+}
+
+.menu { display: flex; gap: 32px; font-weight: 500; }
+.menu a { transition: color 0.2s; }
+.menu a:hover { color: var(--color-point); }
+
+/* =========================================
+   3. 히어로
+   ========================================= */
+.hero { padding: 140px 0 120px; }
+
+.hero-label {
+  color: var(--color-point);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: clamp(56px, 10vw, 128px); /* 화면 크기에 따라 자동으로 크기 조절 */
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-point);
+  margin-bottom: 40px;
+}
+
+.hero-desc {
+  font-size: 20px;
+  color: var(--color-sub);
+  margin-bottom: 40px;
+}
+
+.hero-desc strong { color: var(--color-point-dark); }
+
+/* =========================================
+   4. 버튼
+   ========================================= */
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 999px;
+  background: var(--color-point);
+  color: var(--color-white);
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-point-dark);
+  transform: translateY(-3px);
+}
+
+.btn-light { background: var(--color-white); color: var(--color-point-dark); }
+.btn-light:hover { background: var(--color-bg); }
+
+/* =========================================
+   5. 섹션 공통
+   ========================================= */
+.section { padding: 100px 0; }
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-point);
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   6. 프로젝트 카드
+   ========================================= */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr; /* 왼쪽 이미지, 오른쪽 텍스트 */
+  align-items: center;
+  gap: 48px;
+  padding: 24px;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(107, 91, 214, 0.15);
+}
+
+/* 짝수 번째 카드는 이미지와 텍스트 위치를 바꿈 (지그재그 레이아웃) */
+.project-list li:nth-child(even) .project-card { grid-template-columns: 1fr 1.3fr; }
+.project-list li:nth-child(even) .project-thumb { order: 2; }
+
+.project-thumb {
+  overflow: hidden; /* 확대된 이미지가 밖으로 나가지 않게 */
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.project-card:hover .project-thumb img { transform: scale(1.05); }
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-num {
+  font-weight: 800;
+  color: var(--color-point);
+  margin-right: 4px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-bg);
+  color: var(--color-sub);
+}
+
+.project-name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.project-desc {
+  color: var(--color-sub);
+  margin-bottom: 28px;
+}
+
+/* --accent: 카드마다 HTML에서 지정한 프로젝트 고유 색 */
+.project-more {
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.project-card:hover .project-more { color: var(--accent); }
+
+/* =========================================
+   7. About
+   ========================================= */
+/* 왼쪽 프로필 카드, 오른쪽 이력 카드 */
+.profile {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: start; /* 위쪽 기준으로 정렬 */
+}
+
+.profile-card {
+  text-align: center;
+   /* 이력을 스크롤하는 동안 프로필이 따라옴 */
+  top: 100px;       /* 헤더 높이만큼 띄우기 */
+}
+
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  background: var(--color-white);
+}
+
+.profile-name { font-size: 22px; font-weight: 700; }
+.profile-role { color: var(--color-point); font-weight: 600; }
+
+.profile-bio {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-sub);
+  text-align: center; /* 여러 줄 문장은 왼쪽 정렬이 읽기 편함 */
+}
+
+/* 이력: 흰 카드 안에 행(row)을 쌓음 */
+.resume {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 16px 40px;
+}
+
+.resume-row {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* 왼쪽 제목, 오른쪽 목록 */
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--color-bg);
+}
+
+.resume-row:last-child { border-bottom: none; } /* 마지막 줄은 구분선 없음 */
+
+.resume-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-point);
+  text-transform: uppercase;
+}
+
+.resume-list { display: flex; flex-direction: column; gap: 20px; }
+
+.resume-list li {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* 왼쪽 날짜, 오른쪽 내용 */
+  gap: 16px;
+}
+
+.resume-date {
+  color: var(--color-sub);
+  font-variant-numeric: tabular-nums; /* 숫자 폭을 같게 해서 날짜 줄이 딱 맞게 */
+}
+
+.resume-body strong { font-weight: 600; }
+.resume-body p { font-size: 14px; color: var(--color-sub); }
+
+/* 스킬: 카테고리별 묶음 */
+.skill-groups { display: flex; flex-direction: column; gap: 20px; }
+
+.skill-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-sub);
+  margin-bottom: 8px;
+}
+
+.skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.skill-list li {
+  padding: 8px 18px;
+  border: 1px solid var(--color-point);
+  border-radius: 999px;
+  color: var(--color-point-dark);
+  font-weight: 500;
+}
+
+/* =========================================
+   8. Contact
+   ========================================= */
+.section-contact {
+  background: var(--color-point);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.contact-label { font-weight: 600; opacity: 0.8; margin-bottom: 16px; }
+
+.contact-title {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   9. Footer
+   ========================================= */
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 14px;
+  color: var(--color-sub);
+}
+
+/* =========================================
+   10. 반응형 (태블릿 · 모바일)
+   ========================================= */
+@media (max-width: 768px) {
+  .container, .header-inner { padding-left: 20px; padding-right: 20px; }
+
+  .menu { gap: 16px; font-size: 14px; }
+  .logo { font-size: 14px; }
+
+  .hero { padding: 80px 0; }
+  .hero-desc { font-size: 16px; }
+  .hero-desc br { display: none; } /* 모바일에선 강제 줄바꿈 해제 */
+
+  .section { padding: 72px 0; }
+
+  /* 카드를 세로로 쌓기 (지그재그도 해제) */
+  .project-card,
+  .project-list li:nth-child(even) .project-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px 16px 28px;
+  }
+  .project-list li:nth-child(even) .project-thumb { order: 0; }
+
+  .project-name { font-size: 24px; }
+
+  /* 프로필 위, 이력 카드 아래로 쌓기 */
+  .profile { grid-template-columns: 1fr; gap: 32px; }
+  .profile-card { position: static; max-width: 340px; margin: 0 auto; }
+  .profile-photo { max-width: 180px; margin: 0 auto 20px; }
+  .profile-bio { text-align: center; }
+
+  /* 이력: 제목 → 날짜 → 내용 순서로 세로 배치 */
+  .resume { padding: 8px 20px; }
+  .resume-row { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .resume-list li { grid-template-columns: 1fr; gap: 2px; }
+  .resume-date { font-size: 13px; }
+}
+
+/* 태블릿 (769~1024px): 이력 카드가 좁아지므로 제목을 목록 위로 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .resume-row { grid-template-columns: 1fr; gap: 16px; }
+}
